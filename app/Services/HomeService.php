@@ -11,6 +11,7 @@ class HomeService {
 
     public function receiveGift($giftBox)
     {
+        return ['alert' => 'Success'];
         try {
             $gifts = [
                 'DORAEMON' => '1 vé đi công viên King',
@@ -34,6 +35,7 @@ class HomeService {
 
     public function confirm($params)
     {
+        return ['alert' => 'Success'];
         try {
             Mail::send('confirm', ['confirm' => $params['confirm'], 'rate' => $params['rate'], 'content' => $params['message']], function($mail){
                 $mail->to('vietanhelnino206@gmail.com', 'AnhTV')->subject('Van confirmed!');
