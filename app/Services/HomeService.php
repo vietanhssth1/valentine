@@ -11,6 +11,7 @@ class HomeService {
 
     public function receiveGift($giftBox)
     {
+        return ['alert' => 'Success'];
         try {
             $gifts = [
                 'DORAEMON' => '1 vé đi công viên King',
