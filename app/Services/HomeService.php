@@ -22,12 +22,12 @@ class HomeService {
                 throw new NotFoundHttpException();
             }
             Mail::send('receive_gift', ['gift' => $giftBox, 'content' => $gifts[$giftBox]], function($mail){
-                $mail->to('anhtv@hblab.vn', 'AnhTV')->subject('Van received a secret gift box!');
+                $mail->to('vietanhelnino206@gmail.com', 'AnhTV')->subject('Van received a secret gift box!');
             });
             return ['alert' => 'Success'];
         } catch (\Exception $exception) {
             Log::error('receiveGift ' . $exception->getMessage());
-            throw new UnprocessableEntityHttpException($exception->getMessage());
+            throw new UnprocessableEntityHttpException('Lỗi hệ thống');
         }
 
     }
@@ -36,12 +36,12 @@ class HomeService {
     {
         try {
             Mail::send('confirm', ['confirm' => $params['confirm'], 'rate' => $params['rate'], 'content' => $params['message']], function($mail){
-                $mail->to('anhtv@hblab.vn', 'AnhTV')->subject('Van confirmed!');
+                $mail->to('vietanhelnino206@gmail.com', 'AnhTV')->subject('Van confirmed!');
             });
             return ['alert' => 'Success'];
         } catch (\Exception $exception) {
             Log::error('confirm ' . $exception->getMessage());
-            throw new UnprocessableEntityHttpException($exception->getMessage());
+            throw new UnprocessableEntityHttpException('Lỗi hệ thống');
         }
     }
 }
